@@ -1,1 +1,1452 @@
-# VANDSTAVORGIRLS
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,email=no,address=no">
+    <title>VANDSTAVOR | GEN 7 (Ladies Edition)</title>
+
+    <!-- Icon Placeholder (Ganti dengan logo aslimu jika ada) -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/263/263100.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts yang lebih feminin dan elegan -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'soft-pink': '#fce7f3',
+                        'rose-gold': '#b76e79',
+                        'deep-rose': '#9d174d',
+                        'cream': '#fffdf9',
+                        'text-dark': '#4a4a4a',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        script: ['"Dancing Script"', 'cursive'],
+                        sans: ['"Poppins"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * , *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fffdf9;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        .brand-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .brand-title {
+            font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+            line-height: 1.1;
+        }
+        .footer-brand-title {
+            font-size: clamp(1.9rem, 4vw, 2.75rem);
+            line-height: 1.1;
+        }
+        .script-font {
+            font-family: 'Dancing Script', cursive;
+            color: #b76e79;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- NAVIGATION --- */
+        .glass-nav {
+            background: rgba(255, 253, 249, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(183, 110, 121, 0.1);
+            transition: all 0.4s ease;
+        }
+        .nav-link {
+            position: relative;
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #b76e79;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .nav-link:hover { color: #9d174d; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* --- HERO & FLOATING ELEMENTS --- */
+        .hero-bg {
+            background: radial-gradient(circle at top right, #fce7f3 0%, #fffdf9 40%, #fff0f5 100%);
+        }
+
+        /* Mengganti partikel tajam dengan kelopak/bubble lembut */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(1px);
+            opacity: 0.6;
+            z-index: 0;
+            animation: floatUp linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        /* --- MEMBER CARDS (Polaroid Style) --- */
+        .member-card {
+            background: white;
+            padding: 1rem;
+            padding-bottom: 2.5rem;
+            border-radius: 4px 4px 16px 16px;
+            box-shadow: 0 10px 25px rgba(183, 110, 121, 0.15);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.27), box-shadow 0.4s ease;
+            position: relative;
+        }
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 4px 4px 16px 16px;
+            border: 1px solid rgba(255,255,255,0.5);
+            pointer-events: none;
+        }
+        .member-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 20px 40px rgba(183, 110, 121, 0.25);
+        }
+        .member-img {
+            filter: sepia(20%) contrast(90%);
+            transition: filter 0.4s ease;
+        }
+        .member-card:hover .member-img {
+            filter: sepia(0%) contrast(100%);
+        }
+
+        /* --- ALBUM CARDS (Magazine Style) --- */
+        .album-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        .album-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(183, 110, 121, 0.2);
+        }
+
+        /* --- SWIPER & SCROLL --- */
+        .swiper-pagination-bullet {
+            background: #9d174d;
+            opacity: 0.45;
+            width: 10px;
+            height: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 0 0 2px rgba(183, 110, 121, 0.2);
+            transition: all 0.3s;
+        }
+        .swiper-pagination-bullet-active {
+            background: #b76e79;
+            opacity: 1;
+            width: 26px;
+            border-radius: 999px;
+            box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.3);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- MOBILE MENU --- */
+        .mobile-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        .mobile-link {
+            color: #4a4a4a;
+            border: 1px solid #fce7f3;
+        }
+        .mobile-link:hover {
+            background: #b76e79;
+            color: white;
+            border-color: #b76e79;
+        }
+
+        /* --- LOADER --- */
+        .page-loader {
+            background: #fffdf9;
+            z-index: 9999;
+        }
+        .loader-heart {
+            width: 60px;
+            height: 60px;
+            background: #b76e79;
+            transform: rotate(45deg);
+            animation: heartbeat 1.2s infinite ease-in-out;
+            position: relative;
+        }
+        .loader-heart::before, .loader-heart::after {
+            content: "";
+            width: 60px;
+            height: 60px;
+            background: #b76e79;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .loader-heart::before { top: -30px; left: 0; }
+        .loader-heart::after { top: 0; left: -30px; }
+
+        @keyframes heartbeat {
+            0% { transform: rotate(45deg) scale(0.8); }
+            50% { transform: rotate(45deg) scale(1.1); }
+            100% { transform: rotate(45deg) scale(0.8); }
+        }
+
+        /* Utility */
+        .text-rose { color: #b76e79; }
+        .bg-rose { background-color: #b76e79; }
+        .bg-soft-rose { background-color: #fce7f3; }
+    </style>
+</head>
+<body class="relative">
+
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-700">
+        <div class="loader-heart mb-4"></div>
+        <p class="script-font text-2xl text-gray-400">Vandstavor</p>
+    </div>
+
+    <!-- FLOATING BACKGROUNDS -->
+    <div id="floating-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- JS will populate this with soft circles -->
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center glass-nav">
+        <div class="flex items-center gap-3">
+            <!-- Placeholder Logo Image -->
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/263/263100.png"
+                alt="Vandstavor Logo"
+                class="w-10 h-10 rounded-full object-cover shadow-lg border border-rose-100"
+            >
+            <span class="brand-title font-bold brand-font text-gray-800">VANDSTAVOR <span class="text-rose-gold">GEN7</span></span>
+        </div>
+
+        <div class="hidden md:flex space-x-8 text-sm uppercase tracking-widest font-semibold">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#members" class="nav-link">Members</a>
+            <a href="#album" class="nav-link">Album</a>
+            <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <button id="mobile-menu-button" class="md:hidden text-gray-700 text-xl focus:outline-none">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="mobile-panel fixed top-20 left-4 right-4 z-40 rounded-2xl shadow-xl p-6 transform -translate-y-10 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="grid grid-cols-2 gap-3 font-bold text-xs uppercase tracking-wider">
+            <a href="#home" class="mobile-link py-3 px-4 rounded-xl text-center">Home</a>
+            <a href="#about" class="mobile-link py-3 px-4 rounded-xl text-center">About</a>
+            <a href="#members" class="mobile-link py-3 px-4 rounded-xl text-center">Members</a>
+            <a href="#album" class="mobile-link py-3 px-4 rounded-xl text-center">Album</a>
+            <a href="#achievements" class="mobile-link py-3 px-4 rounded-xl text-center">Achievements</a>
+            <a href="#contact" class="mobile-link py-3 px-4 rounded-xl text-center">Contact</a>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg pt-24 overflow-hidden">
+        <!-- Background Text Decoration -->
+        <h1 class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-[15vw] font-serif text-white opacity-10 pointer-events-none select-none -z-10">
+            Memories
+        </h1>
+
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <p class="script-font text-3xl md:text-5xl mb-4 text-rose-gold" data-aos="fade-down">Sweetest Moments</p>
+            <h1 class="text-5xl md:text-8xl font-serif font-bold mb-6 text-gray-800 leading-tight scroll-reveal">
+                VANDSTAVOR <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-gold to-orange-300 italic">SCRAPBOOK</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-gray-600 text-lg md:text-xl mb-10 italic font-light scroll-reveal" data-aos="fade-up" data-aos-delay="200">
+                "Togetherness and closeness are the keys to strong cooperation in living through the twists and turns of life".
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 scroll-reveal" data-aos="fade-up" data-aos-delay="400">
+                <a href="#members" class="bg-rose-gold hover:bg-rose-700 text-white px-8 py-4 rounded-full font-serif font-bold shadow-lg hover:shadow-rose-300/50 transition-all transform hover:-translate-y-1">
+                    Meet Our Angels
+                </a>
+                <a href="#album" class="bg-white hover:bg-rose-50 text-rose-gold border border-rose-gold px-8 py-4 rounded-full font-serif font-bold shadow-md transition-all transform hover:-translate-y-1">
+                    View Album
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 px-6 md:px-20 bg-white">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative scroll-reveal" data-aos="fade-right">
+                    <div class="absolute -top-6 -left-6 w-24 h-24 bg-soft-rose rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-orange-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+                    <!-- Ganti src dengan foto grup asli kalian -->
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" class="rounded-3xl shadow-2xl relative z-10 grayscale-[20%] hover:grayscale-0 transition duration-700" alt="Vandstavor Group">
+                    <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-rose-100 z-20 hidden md:block max-w-xs">
+                        <p class="script-font text-2xl text-rose-gold">"Beautiful souls & bright minds."</p>
+                    </div>
+                </div>
+
+                <div class="scroll-reveal" data-aos="fade-left">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-800">Born from <span class="text-rose-gold">Love</span>, Growing with Grace.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8 font-light">
+                        VANDSTAVOR, the 7th generation of MA DAFI Sidoarjo, embodies steadfastness, unity, and resilience. Founded upon the values of togetherness and solidarity, we move forward with determination, striving toward a future defined by strong character, clear vision, and meaningful contribution.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="text-center p-4 bg-soft-rose rounded-2xl">
+                            <h3 class="text-4xl font-serif font-bold text-rose-gold">20+</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Awards Won</p>
+                        </div>
+                        <div class="text-center p-4 bg-soft-rose rounded-2xl">
+                            <h3 class="text-4xl font-serif font-bold text-rose-gold">3</h3>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Years Together</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERS SECTION (Polaroid Wall) -->
+    <section id="members" class="py-24 bg-[#fffdf9] relative overflow-hidden">
+        <div class="container mx-auto px-6 md:px-20 mb-12">
+            <h2 class="text-5xl font-serif italic text-center mb-4 scroll-reveal">Our <span class="text-rose-gold">Beloved</span> Members</h2>
+            <div class="w-24 h-1 bg-rose-gold mx-auto rounded-full mb-6 opacity-50"></div>
+            <p class="text-center text-gray-400 italic max-w-xl mx-auto scroll-reveal">Swipe to meet the 50 legends of our family.</p>
+        </div>
+
+        <!-- Swiper -->
+        <div class="swiper memberSwiper px-4 md:px-20 pb-12">
+            <div class="swiper-wrapper py-10">
+                <!-- Member Card Template (Loop ini manual sesuai data asli kamu) -->
+
+                <!-- 1. Leader -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918773/putra_30_w4avsk.jpg" class="w-full h-full object-cover member-img" alt="Akmal">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Muhammad Akmaluddin Rosyid</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Leader</p>
+                            <p class="text-xs text-gray-500 italic">"Vandstavor till i die."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Secretary -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918779/putra_14_ibvdgl.jpg" class="w-full h-full object-cover member-img" alt="Hanif">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Hanif Ikramiya Nabil</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Secretary</p>
+                            <p class="text-xs text-gray-500 italic">"Sukses dunia dan akhirat."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Secretary -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918782/putra_32_ocxiti.jpg" class="w-full h-full object-cover member-img" alt="Rizky">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Rizky Jaya Putra Prasetyo</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Secretary</p>
+                            <p class="text-xs text-gray-500 italic">"Risk is better than regret."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Treasurer -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918759/putra_15_ogvtby.jpg" class="w-full h-full object-cover member-img" alt="Fadhil">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Fadhil Muhammad Harun</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Treasurer</p>
+                            <p class="text-xs text-gray-500 italic">"Toward something better."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918782/putra_8_ftklq2.jpg" class="w-full h-full object-cover member-img" alt="Adel">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Adel Alfa Savero</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"What looks hard doesnt mean impossible."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 16. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 17. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 18. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 19. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 20. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 21. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 22. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 23. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 24. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 25. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 26. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 27. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 28. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 29. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 30. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 31. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 32. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 33. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 34. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 35. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 36. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 37. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 38. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 39. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 40. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 41. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 42. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 43. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 44. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 45. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 46. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 47. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 48. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 49. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 50. Member -->
+                <div class="swiper-slide !w-auto px-2">
+                    <div class="member-card w-64">
+                        <div class="h-72 bg-gray-100 overflow-hidden mb-4">
+                            <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
+                        </div>
+                        <div class="text-center px-2">
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
+                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-8">
+                 <button
+                    id="open-members-overlay"
+                    type="button"
+                    class="text-rose-gold font-bold uppercase tracking-widest text-xs border-b-2 border-rose-gold hover:text-deep-rose hover:border-deep-rose transition pb-1"
+                >
+                    See All Members
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALBUM SECTION (Gallery) -->
+    <section id="album" class="py-24 bg-soft-rose relative">
+        <div class="container mx-auto px-6 text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold italic text-gray-800">Our <span class="text-rose-gold">Chapters</span></h2>
+            <p class="text-gray-500 mt-4 font-light">Stories written in time.</p>
+        </div>
+
+        <div class="swiper albumSwiper px-6 md:px-20 pb-12">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="album-card bg-white rounded-3xl overflow-hidden shadow-xl h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1769740530247-0587e362793f?q=80&w=1929" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Vandstavor X">
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-4 py-1 rounded-full text-xs font-bold text-rose-gold uppercase tracking-wide">Happiness</div>
+                        </div>
+                        <div class="p-8 text-left">
+                            <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor X Evo</h3>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">Sense of inner peace and joy that comes from gratitude, meaningful moments.</p>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">2023</span>
+                                <span class="text-rose-gold font-bold text-xs uppercase">Common</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="album-card bg-white rounded-3xl overflow-hidden shadow-xl h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://res.cloudinary.com/duk56cgw5/image/upload/v1776655879/IMG-20241217-WA0032_hrdcrp.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Vandstavor XI">
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-4 py-1 rounded-full text-xs font-bold text-rose-gold uppercase tracking-wide">Peace</div>
+                        </div>
+                        <div class="p-8 text-left">
+                            <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor XI Electric</h3>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">State of calm and harmony within oneself and with others, achieved through understanding.</p>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">2024</span>
+                                <span class="text-rose-gold font-bold text-xs uppercase">Epic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="album-card bg-white rounded-3xl overflow-hidden shadow-xl h-full">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://i.ibb.co.com/zVb96DFq/Whats-App-Image-2026-01-30-at-12-49-41-1.jpg" class="w-full h-full object-cover hover:scale-110 transition duration-700" alt="Vandstavor XII">
+                            <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-4 py-1 rounded-full text-xs font-bold text-rose-gold uppercase tracking-wide">Togetherness</div>
+                        </div>
+                        <div class="p-8 text-left">
+                            <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor XII Gold</h3>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">Spirit of unity and connection, built through mutual support and shared purpose.</p>
+                            <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                <span class="text-xs text-gray-400 uppercase tracking-widest">2026</span>
+                                <span class="text-rose-gold font-bold text-xs uppercase">Legend</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination mt-8"></div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements" class="py-24 px-6 md:px-20 bg-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <h2 class="text-5xl font-serif font-bold italic text-gray-800">Winner's <span class="text-rose-gold">Podium</span></h2>
+                <p class="text-gray-500 max-w-md text-right font-light italic mt-4 md:mt-0">Consistently bringing home trophies from national arenas with grace.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div class="bg-soft-rose/30 p-8 rounded-3xl border border-rose-100 hover:border-rose-gold/30 hover:shadow-xl transition duration-300 scroll-reveal">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-gold shadow-md mb-6">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Futsal Boarding School 2025</h3>
+                    <p class="text-gray-500 text-sm font-light">Sukodono, Sidoarjo. Showing amazing teamwork and sportsmanship.</p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="bg-soft-rose/30 p-8 rounded-3xl border border-rose-100 hover:border-rose-gold/30 hover:shadow-xl transition duration-300 scroll-reveal" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-gold shadow-md mb-6">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Mathematics Olympiad 2025</h3>
+                    <p class="text-gray-500 text-sm font-light">Solving complex math problems with brilliance and logic.</p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="bg-soft-rose/30 p-8 rounded-3xl border border-rose-100 hover:border-rose-gold/30 hover:shadow-xl transition duration-300 scroll-reveal" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-gold shadow-md mb-6">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">2nd MFQ 2024</h3>
+                    <p class="text-gray-500 text-sm font-light">Understanding and explaining the content of the Qur'an beautifully.</p>
+                </div>
+
+                 <!-- Achievement 4 -->
+                 <div class="bg-soft-rose/30 p-8 rounded-3xl border border-rose-100 hover:border-rose-gold/30 hover:shadow-xl transition duration-300 scroll-reveal">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-gold shadow-md mb-6">
+                        <i class="fa-solid fa-trophy text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Mathematics HIFEST 2026</h3>
+                    <p class="text-gray-500 text-sm font-light">Doing and explaining several difficult math problems with ease.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBER OVERLAY (Grid Version) -->
+    <div id="members-overlay" class="fixed inset-0 z-[100] hidden opacity-0 transition-opacity duration-300" aria-hidden="true">
+        <div class="absolute inset-0 bg-gray-900/60 backdrop-blur-sm" id="overlay-backdrop"></div>
+        <div class="relative w-full h-full max-w-6xl mx-auto flex flex-col p-6 md:p-12 overflow-hidden">
+            <div class="flex justify-between items-center mb-8 bg-white/10 backdrop-blur-md p-4 rounded-2xl">
+                <div>
+                    <h3 class="text-3xl font-serif font-bold text-white">Menu <span class="text-rose-300">Siswa</span></h3>
+                    <p class="text-gray-300 text-sm italic">Find your friends easily.</p>
+                </div>
+                <button id="close-members-overlay" class="w-10 h-10 rounded-full bg-white text-gray-900 hover:bg-rose-gold hover:text-white transition flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto pr-2 custom-scrollbar bg-white/5 p-4 rounded-2xl backdrop-blur-sm">
+                <div class="mb-6">
+                     <input id="member-search-input" type="text" placeholder="Search siswa..." class="w-full bg-white/90 border-none rounded-full px-6 py-3 text-gray-800 focus:ring-2 focus:ring-rose-gold outline-none shadow-inner">
+                </div>
+                <div id="members-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Grid diisi via JS -->
+                </div>
+                <p id="members-empty-state" class="hidden text-center text-gray-300 py-10 italic">Siswa tidak ditemukan. Coba kata kunci lain.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact" class="bg-[#fdf6f6] pt-24 pb-10 px-6 md:px-20 border-t border-rose-100">
+        <div class="container mx-auto grid md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-2">
+                 <h2 class="footer-brand-title font-serif font-bold mb-6 text-gray-800">VANDSTAVOR <span class="text-rose-gold">GEN7</span></h2>
+                <p class="text-gray-500 max-w-sm mb-8 font-light leading-relaxed">
+                    MA DAFI PESANTREN AL-QUR'AN SCIENCE, Sukodono, Sidoarjo, Jawa Timur, Indonesia. <br>
+                    Building a legacy of love and excellence.
+                </p>
+                <div class="flex space-x-6 text-2xl text-gray-400">
+                    <a href="https://www.instagram.com/vandstavor/" target="_blank" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold mb-6 text-gray-800 uppercase tracking-widest text-sm">Quick Links</h4>
+                <ul class="space-y-4 text-gray-500 font-light">
+                    <li><a href="#about" class="hover:text-rose-gold transition">Vandstavor Info</a></li>
+                    <li><a href="#members" class="hover:text-rose-gold transition">Our Family</a></li>
+                    <li><a href="https://share.google/2tRePTXh1X4VbWzGz" target="_blank" class="hover:text-rose-gold transition font-semibold">Address</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif font-bold mb-6 text-gray-800 uppercase tracking-widest text-sm">Stay Connected</h4>
+                <p class="text-gray-500 text-sm mb-2">vndstvr@gmail.com</p>
+                <p class="text-gray-500 text-sm mb-8">+62 815-5401-6204</p>
+
+                <form id="subscribe-form" class="flex flex-col gap-3">
+                    <input type="email" placeholder="Your email address" class="bg-white border border-rose-100 rounded-xl px-4 py-3 text-sm focus:border-rose-gold outline-none transition">
+                    <button type="submit" class="bg-rose-gold hover:bg-rose-700 text-white font-serif font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 text-xs border-t border-rose-50 pt-10">
+            <p>&copy; 2026 Vandstavor Team. Designed with Love.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // --- EmailJS Template (isi sesuai akun EmailJS kamu) ---
+        const EMAILJS_CONFIG = {
+            publicKey: '',
+            serviceId: '',
+            templateId: ''
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            emailjs.init(EMAILJS_CONFIG.publicKey);
+
+            // 1. Initialize Animations
+            AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
+
+            // 2. Loader Logic
+            const pageLoader = document.getElementById('page-loader');
+            setTimeout(() => {
+                pageLoader.style.opacity = '0';
+                setTimeout(() => pageLoader.remove(), 700);
+            }, 1500);
+
+            // 3. Floating Background Elements (Soft Bubbles)
+            const container = document.getElementById('floating-container');
+            const colors = ['#fce7f3', '#fbcfe8', '#e9d5ff', '#fff1f2'];
+
+            for(let i=0; i<15; i++) {
+                const el = document.createElement('div');
+                el.classList.add('floating-element');
+                const size = Math.random() * 60 + 20;
+                el.style.width = `${size}px`;
+                el.style.height = `${size}px`;
+                el.style.left = `${Math.random() * 100}vw`;
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                el.style.animationDelay = `${Math.random() * 5}s`;
+                container.appendChild(el);
+            }
+
+            // 4. Swiper Initialization
+            const memberSwiper = new Swiper('.memberSwiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 30,
+                grabCursor: true,
+                freeMode: true,
+                mousewheel: { forceToAxis: true }
+            });
+
+            const albumSwiper = new Swiper('.albumSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                centeredSlides: true,
+                pagination: { el: '.swiper-pagination', clickable: true },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+
+            // 5. Mobile Menu
+            const btnMobile = document.getElementById('mobile-menu-button');
+            const menuMobile = document.getElementById('mobile-menu');
+
+            btnMobile.addEventListener('click', () => {
+                const isClosed = menuMobile.classList.contains('pointer-events-none');
+                if(isClosed) {
+                    menuMobile.classList.remove('-translate-y-10', 'opacity-0', 'pointer-events-none');
+                    btnMobile.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+                } else {
+                    menuMobile.classList.add('-translate-y-10', 'opacity-0', 'pointer-events-none');
+                    btnMobile.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+                }
+            });
+
+            // Close menu on link click
+            menuMobile.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuMobile.classList.add('-translate-y-10', 'opacity-0', 'pointer-events-none');
+                    btnMobile.innerHTML = '<i class="fa-solid fa-bars-staggered"></i>';
+                });
+            });
+
+            // 6. Member Overlay Logic
+            const overlay = document.getElementById('members-overlay');
+            const openBtn = document.getElementById('open-members-overlay');
+            const closeBtn = document.getElementById('close-members-overlay');
+            const membersGrid = document.getElementById('members-grid');
+            const searchInput = document.getElementById('member-search-input');
+            const emptyState = document.getElementById('members-empty-state');
+
+            const populateGrid = () => {
+                // Mengambil data dari slide swiper utama (hanya contoh 6, sisanya bisa ditambah manual mirip slide di atas)
+                const slides = document.querySelectorAll('.memberSwiper .swiper-slide');
+                // Jika ingin semua member muncul, pastikan di HTML atas semua member ada di swiper-slide
+
+                slides.forEach(slide => {
+                    const card = slide.querySelector('.member-card');
+                    if(!card) return;
+
+                    const clone = card.cloneNode(true);
+                    clone.classList.remove('w-64');
+                    clone.classList.add('w-full');
+
+                    const name = card.querySelector('h3').textContent.trim();
+                    const wrapper = document.createElement('div');
+                    wrapper.dataset.name = name.toLowerCase();
+                    wrapper.appendChild(clone);
+                    membersGrid.appendChild(wrapper);
+                });
+            };
+
+            const toggleOverlay = (show) => {
+                if(show) {
+                    overlay.classList.remove('hidden');
+                    setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+                    document.body.style.overflow = 'hidden';
+                    populateGrid(); // Populate saat dibuka agar performa awal ringan
+                } else {
+                    overlay.classList.add('opacity-0');
+                    setTimeout(() => {
+                        overlay.classList.add('hidden');
+                        document.body.style.overflow = '';
+                        membersGrid.innerHTML = ''; // Clear cache
+                    }, 300);
+                }
+            };
+
+            openBtn.addEventListener('click', () => toggleOverlay(true));
+            closeBtn.addEventListener('click', () => toggleOverlay(false));
+
+            // Search Filter
+            searchInput.addEventListener('input', (e) => {
+                const term = e.target.value.toLowerCase();
+                const wrappers = membersGrid.querySelectorAll('[data-name]');
+                let count = 0;
+
+                wrappers.forEach(w => {
+                    if(w.dataset.name.includes(term)) {
+                        w.classList.remove('hidden');
+                        count++;
+                    } else {
+                        w.classList.add('hidden');
+                    }
+                });
+                emptyState.classList.toggle('hidden', count > 0);
+            });
+
+            // 7. Scroll Reveal Animation (Custom)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+            // 8. EmailJS Subscribe Form
+            const subscribeForm = document.getElementById('subscribe-form');
+            const subscribeInput = subscribeForm.querySelector('input[type="email"]');
+
+            subscribeForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const userEmail = subscribeInput.value.trim();
+                if (!userEmail) return;
+
+                try {
+                    await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+                        user_email: userEmail,
+                        from_name: 'VANDSTAVOR Website'
+                    });
+                    subscribeInput.value = '';
+                    alert('Terima kasih! Email kamu berhasil dikirim.');
+                } catch (err) {
+                    console.error('EmailJS error:', err);
+                    alert('Gagal mengirim email. Cek EmailJS Public Key / Service ID / Template ID.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
