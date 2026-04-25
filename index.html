@@ -6,11 +6,11 @@
     <meta name="format-detection" content="telephone=no,email=no,address=no">
     <title>VANDSTAVOR | GEN 7 (Ladies Edition)</title>
 
-    <!-- Icon Placeholder (Ganti dengan logo aslimu jika ada) -->
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/263/263100.png">
+    <!-- Icon Placeholder -->
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/ddc1rmczp/image/upload/v1777080093/Untitled_design_8_slb0sf.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts yang lebih feminin dan elegan -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -98,10 +98,26 @@
 
         /* --- HERO & FLOATING ELEMENTS --- */
         .hero-bg {
-            background: radial-gradient(circle at top right, #fce7f3 0%, #fffdf9 40%, #fff0f5 100%);
+            position: relative;
+            background: #1f1020;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top right, rgba(252, 231, 243, 0.35) 0%, rgba(255, 253, 249, 0.08) 45%, rgba(0, 0, 0, 0.45) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
-        /* Mengganti partikel tajam dengan kelopak/bubble lembut */
         .floating-element {
             position: absolute;
             border-radius: 50%;
@@ -204,34 +220,37 @@
             border-color: #b76e79;
         }
 
-        /* --- LOADER --- */
+        /* --- LOADER (PERBAIKAN DISINI) --- */
         .page-loader {
             background: #fffdf9;
             z-index: 9999;
         }
-        .loader-heart {
-            width: 60px;
-            height: 60px;
-            background: #b76e79;
-            transform: rotate(45deg);
-            animation: heartbeat 1.2s infinite ease-in-out;
-            position: relative;
+        .loader-opening-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 9999px;
+            object-fit: cover;
+            box-shadow: 0 12px 32px rgba(183, 110, 121, 0.35);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            
+            /* Animasi masuk dulu, baru berdenyut */
+            opacity: 0;
+            animation: logoEntrance 1s ease-out forwards, heartbeat 2.5s infinite ease-in-out 1s;
         }
-        .loader-heart::before, .loader-heart::after {
-            content: "";
-            width: 60px;
-            height: 60px;
-            background: #b76e79;
-            border-radius: 50%;
-            position: absolute;
+        
+        /* Animasi masuk: fade in + naik ke atas sedikit */
+        @keyframes logoEntrance {
+            0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
-        .loader-heart::before { top: -30px; left: 0; }
-        .loader-heart::after { top: 0; left: -30px; }
 
+        /* Animasi berdenyut (diperlambat agar lebih elegan) */
         @keyframes heartbeat {
-            0% { transform: rotate(45deg) scale(0.8); }
-            50% { transform: rotate(45deg) scale(1.1); }
-            100% { transform: rotate(45deg) scale(0.8); }
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
         }
 
         /* Utility */
@@ -243,22 +262,20 @@
 <body class="relative">
 
     <!-- LOADER -->
-    <div id="page-loader" class="page-loader fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-700">
-        <div class="loader-heart mb-4"></div>
-        <p class="script-font text-2xl text-gray-400">Vandstavor</p>
+    <div id="page-loader" class="page-loader fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-1000">
+        <!-- Pastikan src gambar ini valid dan tidak redirect -->
+        <img id="opening-loader-image" class="loader-opening-image mb-6" src="https://res.cloudinary.com/ddc1rmczp/image/upload/v1777080093/Untitled_design_8_slb0sf.png" alt="Opening animation image">
+        <p class="script-font text-3xl text-gray-400 opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">Vandstavor</p>
     </div>
 
     <!-- FLOATING BACKGROUNDS -->
-    <div id="floating-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <!-- JS will populate this with soft circles -->
-    </div>
+    <div id="floating-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
 
     <!-- NAVBAR -->
     <nav class="sticky top-0 w-full z-50 py-4 px-6 md:px-12 flex justify-between items-center glass-nav">
         <div class="flex items-center gap-3">
-            <!-- Placeholder Logo Image -->
             <img
-                src="https://cdn-icons-png.flaticon.com/512/263/263100.png"
+                src="https://res.cloudinary.com/ddc1rmczp/image/upload/v1777080093/Untitled_design_8_slb0sf.png"
                 alt="Vandstavor Logo"
                 class="w-10 h-10 rounded-full object-cover shadow-lg border border-rose-100"
             >
@@ -270,6 +287,7 @@
             <a href="#about" class="nav-link">About</a>
             <a href="#members" class="nav-link">Members</a>
             <a href="#album" class="nav-link">Album</a>
+            <a href="#kaleidoscope" class="nav-link">KV</a>
             <a href="#achievements" class="nav-link">Achievements</a>
             <a href="#contact" class="nav-link">Contact</a>
         </div>
@@ -287,13 +305,16 @@
             <a href="#members" class="mobile-link py-3 px-4 rounded-xl text-center">Members</a>
             <a href="#album" class="mobile-link py-3 px-4 rounded-xl text-center">Album</a>
             <a href="#achievements" class="mobile-link py-3 px-4 rounded-xl text-center">Achievements</a>
+            <a href="#kaleidoscope" class="mobile-link py-3 px-4 rounded-xl text-center">KV</a>
             <a href="#contact" class="mobile-link py-3 px-4 rounded-xl text-center">Contact</a>
         </div>
     </div>
 
     <!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg pt-24 overflow-hidden">
-        <!-- Background Text Decoration -->
+        <video id="home-bg-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
+            <source src="https://res.cloudinary.com/ddc1rmczp/video/upload/v1777083150/WhatsApp_Video_2026-04-24_at_17.47.39_i8cdho.mp4" type="video/mp4">
+        </video>
         <h1 class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-[15vw] font-serif text-white opacity-10 pointer-events-none select-none -z-10">
             Memories
         </h1>
@@ -327,7 +348,6 @@
                 <div class="relative scroll-reveal" data-aos="fade-right">
                     <div class="absolute -top-6 -left-6 w-24 h-24 bg-soft-rose rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
                     <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-orange-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
-                    <!-- Ganti src dengan foto grup asli kalian -->
                     <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" class="rounded-3xl shadow-2xl relative z-10 grayscale-[20%] hover:grayscale-0 transition duration-700" alt="Vandstavor Group">
                     <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-rose-100 z-20 hidden md:block max-w-xs">
                         <p class="script-font text-2xl text-rose-gold">"Beautiful souls & bright minds."</p>
@@ -365,8 +385,7 @@
         <!-- Swiper -->
         <div class="swiper memberSwiper px-4 md:px-20 pb-12">
             <div class="swiper-wrapper py-10">
-                <!-- Member Card Template (Loop ini manual sesuai data asli kamu) -->
-
+                
                 <!-- 1. Leader -->
                 <div class="swiper-slide !w-auto px-2">
                     <div class="member-card w-64">
@@ -374,8 +393,8 @@
                             <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918773/putra_30_w4avsk.jpg" class="w-full h-full object-cover member-img" alt="Akmal">
                         </div>
                         <div class="text-center px-2">
-                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Muhammad Akmaluddin Rosyid</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Leader</p>
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Muhammad Akmaluddin</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Leader</p>
                             <p class="text-xs text-gray-500 italic">"Vandstavor till i die."</p>
                         </div>
                     </div>
@@ -389,8 +408,8 @@
                         </div>
                         <div class="text-center px-2">
                             <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Hanif Ikramiya Nabil</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Secretary</p>
-                            <p class="text-xs text-gray-500 italic">"Sukses dunia dan akhirat."</p>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Secretary</p>
+                            <p class="text-xs text-gray-500 italic">"Sukses dunia akhirat."</p>
                         </div>
                     </div>
                 </div>
@@ -402,8 +421,8 @@
                             <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918782/putra_32_ocxiti.jpg" class="w-full h-full object-cover member-img" alt="Rizky">
                         </div>
                         <div class="text-center px-2">
-                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Rizky Jaya Putra Prasetyo</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Secretary</p>
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Rizky Jaya Putra</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Secretary</p>
                             <p class="text-xs text-gray-500 italic">"Risk is better than regret."</p>
                         </div>
                     </div>
@@ -417,7 +436,7 @@
                         </div>
                         <div class="text-center px-2">
                             <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Fadhil Muhammad Harun</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Treasurer</p>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Treasurer</p>
                             <p class="text-xs text-gray-500 italic">"Toward something better."</p>
                         </div>
                     </div>
@@ -431,8 +450,8 @@
                         </div>
                         <div class="text-center px-2">
                             <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Adel Alfa Savero</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
-                            <p class="text-xs text-gray-500 italic">"What looks hard doesnt mean impossible."</p>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p>
+                            <p class="text-xs text-gray-500 italic">"Impossible is nothing."</p>
                         </div>
                     </div>
                 </div>
@@ -444,9 +463,9 @@
                             <img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Ahmad">
                         </div>
                         <div class="text-center px-2">
-                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir Jaelani</h3>
-                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Vandstavor Member</p>
-                            <p class="text-xs text-gray-500 italic">"Jika Mudah Nyerah Mungkin Kurang Lillah.."</p>
+                            <h3 class="text-lg font-serif font-bold uppercase text-gray-800 leading-tight mb-1">Ahmad Abdul Khodir</h3>
+                            <p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p>
+                            <p class="text-xs text-gray-500 italic">"Kurang Lillah."</p>
                         </div>
                     </div>
                 </div>
@@ -1099,7 +1118,7 @@
                         </div>
                         <div class="p-8 text-left">
                             <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor X Evo</h3>
-                            <p class="text-gray-500 text-sm font-light mb-6 italic">Sense of inner peace and joy that comes from gratitude, meaningful moments.</p>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">Sense of inner peace and joy that comes from gratitude.</p>
                             <div class="flex justify-between items-center border-t border-gray-100 pt-4">
                                 <span class="text-xs text-gray-400 uppercase tracking-widest">2023</span>
                                 <span class="text-rose-gold font-bold text-xs uppercase">Common</span>
@@ -1117,7 +1136,7 @@
                         </div>
                         <div class="p-8 text-left">
                             <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor XI Electric</h3>
-                            <p class="text-gray-500 text-sm font-light mb-6 italic">State of calm and harmony within oneself and with others, achieved through understanding.</p>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">State of calm and harmony within oneself and others.</p>
                             <div class="flex justify-between items-center border-t border-gray-100 pt-4">
                                 <span class="text-xs text-gray-400 uppercase tracking-widest">2024</span>
                                 <span class="text-rose-gold font-bold text-xs uppercase">Epic</span>
@@ -1135,7 +1154,7 @@
                         </div>
                         <div class="p-8 text-left">
                             <h3 class="text-3xl font-serif font-bold text-gray-800 mb-2">Vandstavor XII Gold</h3>
-                            <p class="text-gray-500 text-sm font-light mb-6 italic">Spirit of unity and connection, built through mutual support and shared purpose.</p>
+                            <p class="text-gray-500 text-sm font-light mb-6 italic">Spirit of unity and connection, built through mutual support.</p>
                             <div class="flex justify-between items-center border-t border-gray-100 pt-4">
                                 <span class="text-xs text-gray-400 uppercase tracking-widest">2026</span>
                                 <span class="text-rose-gold font-bold text-xs uppercase">Legend</span>
@@ -1153,7 +1172,7 @@
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16">
                 <h2 class="text-5xl font-serif font-bold italic text-gray-800">Winner's <span class="text-rose-gold">Podium</span></h2>
-                <p class="text-gray-500 max-w-md text-right font-light italic mt-4 md:mt-0">Consistently bringing home trophies from national arenas with grace.</p>
+                <p class="text-gray-500 max-w-md text-right font-light italic mt-4 md:mt-0">Consistently bringing home trophies with grace.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1163,7 +1182,7 @@
                         <i class="fa-solid fa-trophy text-xl"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Futsal Boarding School 2025</h3>
-                    <p class="text-gray-500 text-sm font-light">Sukodono, Sidoarjo. Showing amazing teamwork and sportsmanship.</p>
+                    <p class="text-gray-500 text-sm font-light">Sukodono, Sidoarjo. Showing amazing teamwork.</p>
                 </div>
 
                 <!-- Achievement 2 -->
@@ -1172,7 +1191,7 @@
                         <i class="fa-solid fa-trophy text-xl"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Mathematics Olympiad 2025</h3>
-                    <p class="text-gray-500 text-sm font-light">Solving complex math problems with brilliance and logic.</p>
+                    <p class="text-gray-500 text-sm font-light">Solving complex math problems with brilliance.</p>
                 </div>
 
                 <!-- Achievement 3 -->
@@ -1181,17 +1200,24 @@
                         <i class="fa-solid fa-trophy text-xl"></i>
                     </div>
                     <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">2nd MFQ 2024</h3>
-                    <p class="text-gray-500 text-sm font-light">Understanding and explaining the content of the Qur'an beautifully.</p>
+                    <p class="text-gray-500 text-sm font-light">Understanding and explaining the content of the Qur'an.</p>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                 <!-- Achievement 4 -->
-                 <div class="bg-soft-rose/30 p-8 rounded-3xl border border-rose-100 hover:border-rose-gold/30 hover:shadow-xl transition duration-300 scroll-reveal">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-rose-gold shadow-md mb-6">
-                        <i class="fa-solid fa-trophy text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-serif font-bold mb-3 text-gray-800">1st Mathematics HIFEST 2026</h3>
-                    <p class="text-gray-500 text-sm font-light">Doing and explaining several difficult math problems with ease.</p>
-                </div>
+    <!-- KALEIDOSCOPE VIDEO SECTION -->
+    <section id="kaleidoscope" class="py-24 px-6 md:px-20 bg-[#fff8fb] border-y border-rose-100">
+        <div class="container mx-auto">
+            <div class="text-center mb-12 scroll-reveal">
+                <p class="script-font text-3xl md:text-5xl mb-3 text-rose-gold">Special Replay</p>
+                <h2 class="text-4xl md:text-6xl font-serif font-bold text-gray-800">KALEIDOSCOPE VIDEO</h2>
+            </div>
+
+            <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl border border-rose-100 bg-black scroll-reveal">
+                <video id="kaleidoscope-video" controls playsinline preload="metadata" class="w-full h-[280px] md:h-[520px] object-cover">
+                    <source src="https://cdn.coverr.co/videos/coverr-flying-over-a-city-1579/1080p.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
@@ -1217,7 +1243,7 @@
                 <div id="members-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <!-- Grid diisi via JS -->
                 </div>
-                <p id="members-empty-state" class="hidden text-center text-gray-300 py-10 italic">Siswa tidak ditemukan. Coba kata kunci lain.</p>
+                <p id="members-empty-state" class="hidden text-center text-gray-300 py-10 italic">Siswa tidak ditemukan.</p>
             </div>
         </div>
     </div>
@@ -1234,7 +1260,6 @@
                 <div class="flex space-x-6 text-2xl text-gray-400">
                     <a href="https://www.instagram.com/vandstavor/" target="_blank" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#" class="hover:text-rose-gold transition transform hover:scale-110"><i class="fa-brands fa-facebook"></i></a>
                 </div>
             </div>
             <div>
@@ -1248,8 +1273,7 @@
             <div>
                 <h4 class="font-serif font-bold mb-6 text-gray-800 uppercase tracking-widest text-sm">Stay Connected</h4>
                 <p class="text-gray-500 text-sm mb-2">vndstvr@gmail.com</p>
-                <p class="text-gray-500 text-sm mb-8">+62 815-5401-6204</p>
-
+                <p class="text-gray-500 text-sm mb-8">+62 isi nomer wa</p>
                 <form id="subscribe-form" class="flex flex-col gap-3">
                     <input type="email" placeholder="Your email address" class="bg-white border border-rose-100 rounded-xl px-4 py-3 text-sm focus:border-rose-gold outline-none transition">
                     <button type="submit" class="bg-rose-gold hover:bg-rose-700 text-white font-serif font-bold py-3 rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1">
@@ -1269,11 +1293,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
-        // --- EmailJS Template (isi sesuai akun EmailJS kamu) ---
+        // --- EmailJS Template ---
         const EMAILJS_CONFIG = {
-            publicKey: '',
-            serviceId: '',
-            templateId: ''
+            publicKey: '', // Isi dengan Public Key EmailJS kamu
+            serviceId: '', // Isi dengan Service ID
+            templateId: '' // Isi dengan Template ID
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1282,14 +1306,17 @@
             // 1. Initialize Animations
             AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
 
-            // 2. Loader Logic
+            // 2. Loader Logic (SUDAH DIPERBAIKI DISINI)
             const pageLoader = document.getElementById('page-loader');
+            
+            // PERBAIKAN: Waktu diubah dari 1500ms (1.5 detik) menjadi 2000ms (2 detik)
+            // Ini memberi waktu cukup untuk animasi logo berjalan dengan elegan
             setTimeout(() => {
-                pageLoader.style.opacity = '0';
-                setTimeout(() => pageLoader.remove(), 700);
-            }, 1500);
+                pageLoader.style.opacity = '0'; // Mulai memudar
+                setTimeout(() => pageLoader.remove(), 1000); // Tunggu 1 detik transisi fade out selesai, baru hapus elemen
+            }, 2000); 
 
-            // 3. Floating Background Elements (Soft Bubbles)
+            // 3. Floating Background Elements
             const container = document.getElementById('floating-container');
             const colors = ['#fce7f3', '#fbcfe8', '#e9d5ff', '#fff1f2'];
 
@@ -1358,18 +1385,13 @@
             const emptyState = document.getElementById('members-empty-state');
 
             const populateGrid = () => {
-                // Mengambil data dari slide swiper utama (hanya contoh 6, sisanya bisa ditambah manual mirip slide di atas)
                 const slides = document.querySelectorAll('.memberSwiper .swiper-slide');
-                // Jika ingin semua member muncul, pastikan di HTML atas semua member ada di swiper-slide
-
                 slides.forEach(slide => {
                     const card = slide.querySelector('.member-card');
                     if(!card) return;
-
                     const clone = card.cloneNode(true);
                     clone.classList.remove('w-64');
                     clone.classList.add('w-full');
-
                     const name = card.querySelector('h3').textContent.trim();
                     const wrapper = document.createElement('div');
                     wrapper.dataset.name = name.toLowerCase();
@@ -1383,13 +1405,13 @@
                     overlay.classList.remove('hidden');
                     setTimeout(() => overlay.classList.remove('opacity-0'), 10);
                     document.body.style.overflow = 'hidden';
-                    populateGrid(); // Populate saat dibuka agar performa awal ringan
+                    populateGrid();
                 } else {
                     overlay.classList.add('opacity-0');
                     setTimeout(() => {
                         overlay.classList.add('hidden');
                         document.body.style.overflow = '';
-                        membersGrid.innerHTML = ''; // Clear cache
+                        membersGrid.innerHTML = '';
                     }, 300);
                 }
             };
@@ -1414,7 +1436,7 @@
                 emptyState.classList.toggle('hidden', count > 0);
             });
 
-            // 7. Scroll Reveal Animation (Custom)
+            // 7. Scroll Reveal Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1443,7 +1465,7 @@
                     alert('Terima kasih! Email kamu berhasil dikirim.');
                 } catch (err) {
                     console.error('EmailJS error:', err);
-                    alert('Gagal mengirim email. Cek EmailJS Public Key / Service ID / Template ID.');
+                    // alert('Gagal mengirim email. Cek EmailJS Public Key / Service ID / Template ID.');
                 }
             });
         });
