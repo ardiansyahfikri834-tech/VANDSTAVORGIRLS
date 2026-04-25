@@ -38,6 +38,27 @@
     </script>
 
     <style>
+        @font-face {
+            font-family: 'Railey';
+            src: url('./fonts/Railey.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Sirukota';
+            src: url('./fonts/Sirukota.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Sabrina';
+            src: url('./fonts/Sabrina.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Wizards Magic';
+            src: url('./fonts/WizardsMagic.ttf') format('truetype');
+            font-display: swap;
+        }
+
         * , *::before, *::after { box-sizing: border-box; }
         body {
             font-family: 'Poppins', sans-serif;
@@ -45,6 +66,25 @@
             color: #4a4a4a;
             overflow-x: hidden;
         }
+
+
+        
+        @font-face {
+            font-family: 'Glitter Candy';
+            src: url('./fonts/GlitterCandy.otf') format('opentype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Rascal';
+            src: url('./fonts/Rascal.ttf') format('truetype');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Ice Cream';
+            src: url('./fonts/IceCream.ttf') format('truetype');
+            font-display: swap;
+        }
+
 
         /* --- TYPOGRAPHY --- */
         .brand-font {
@@ -66,6 +106,17 @@
         }
         .section-title {
             font-family: 'Playfair Display', serif;
+        }
+        .about-main-title-font {
+            font-family: 'Glitter Candy', 'Playfair Display', serif;
+            letter-spacing: 0.02em;
+        }
+        .about-tagline-font {
+            font-family: 'Rascal', 'Dancing Script', cursive;
+        }
+        .about-description-font,
+        .about-stats-font {
+            font-family: 'Ice Cream', 'Poppins', sans-serif;
         }
 
         /* --- NAVIGATION --- */
@@ -258,6 +309,21 @@
             color: #ff9fcb;
             text-shadow: 0 2px 12px rgba(58, 16, 42, 0.55);
         }
+        .hero-sweetest {
+            font-family: 'Railey', cursive;
+        }
+        .hero-brand-name {
+            font-family: 'Sirukota', serif;
+            letter-spacing: 0.04em;
+        }
+        .hero-scrapbook {
+            font-family: 'Sabrina', cursive;
+            font-style: normal;
+        }
+        .hero-quote-font {
+            font-family: 'Wizards Magic', cursive;
+            font-style: normal;
+        }
         .hero-title-main {
             color: #f8fbff;
             text-shadow: 0 4px 20px rgba(6, 10, 34, 0.75);
@@ -343,13 +409,13 @@
         </h1>
 
         <div class="container mx-auto px-6 text-center relative z-10">
-            <p class="script-font hero-subtitle text-3xl md:text-5xl mb-4" data-aos="fade-down">Sweetest Moments</p>
+            <p class="script-font hero-subtitle hero-sweetest text-3xl md:text-5xl mb-4" data-aos="fade-down">Memories Archive</p>
             <h1 class="hero-title-main text-5xl md:text-8xl font-serif font-bold mb-6 leading-tight scroll-reveal">
-                VANDSTAVOR <br>
-                <span class="hero-title-accent text-transparent bg-clip-text italic">SCRAPBOOK</span>
+                <span class="hero-brand-name">VANDSTAVOR</span> <br>
+                <span class="hero-title-accent hero-scrapbook text-transparent bg-clip-text">JOURNEY</span>
             </h1>
 
-            <p class="hero-quote max-w-2xl mx-auto text-lg md:text-xl mb-10 italic font-light scroll-reveal" data-aos="fade-up" data-aos-delay="200">
+            <p class="hero-quote hero-quote-font max-w-2xl mx-auto text-lg md:text-xl mb-10 font-light scroll-reveal" data-aos="fade-up" data-aos-delay="200">
                 "Togetherness and closeness are the keys to strong cooperation in living through the twists and turns of life".
             </p>
 
@@ -373,22 +439,22 @@
                     <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-orange-100 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
                     <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1000&auto=format&fit=crop" class="rounded-3xl shadow-2xl relative z-10 grayscale-[20%] hover:grayscale-0 transition duration-700" alt="Vandstavor Group">
                     <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-rose-100 z-20 hidden md:block max-w-xs">
-                        <p class="script-font text-2xl text-rose-gold">"Beautiful souls & bright minds."</p>
+                        <p class="script-font about-tagline-font text-2xl text-rose-gold">"Beautiful souls & bright minds."</p>
                     </div>
                 </div>
 
                 <div class="scroll-reveal" data-aos="fade-left">
-                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-800">Born from <span class="text-rose-gold">Love</span>, Growing with Grace.</h2>
-                    <p class="text-gray-600 leading-relaxed mb-8 font-light">
+                   <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-gray-800 about-main-title-font">Born from <span class="text-rose-gold">Love</span>, Growing with Grace.</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8 font-light about-description-font">
                         VANDSTAVOR, the 7th generation of MA DAFI Sidoarjo, embodies steadfastness, unity, and resilience. Founded upon the values of togetherness and solidarity, we move forward with determination, striving toward a future defined by strong character, clear vision, and meaningful contribution.
                     </p>
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-2 gap-8 about-stats-font">
                         <div class="text-center p-4 bg-soft-rose rounded-2xl">
-                            <h3 class="text-4xl font-serif font-bold text-rose-gold">20+</h3>
+                            <h3 class="text-4xl font-bold text-rose-gold">20+</h3>
                             <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Awards Won</p>
                         </div>
                         <div class="text-center p-4 bg-soft-rose rounded-2xl">
-                            <h3 class="text-4xl font-serif font-bold text-rose-gold">3</h3>
+                            <h3 class="text-4xl font-bold text-rose-gold">3</h3>
                             <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Years Together</p>
                         </div>
                     </div>
@@ -402,7 +468,7 @@
         <div class="container mx-auto px-6 md:px-20 mb-12">
             <h2 class="text-5xl font-serif italic text-center mb-4 scroll-reveal">Our <span class="text-rose-gold">Beloved</span> Members</h2>
             <div class="w-24 h-1 bg-rose-gold mx-auto rounded-full mb-6 opacity-50"></div>
-            <p class="text-center text-[white] italic max-w-xl mx-auto scroll-reveal">Swipe to meet the 50 legends of our family.</p>
+            <p class="rascal-font text-center text-[white] italic max-w-xl mx-auto scroll-reveal">Swipe to meet the 50 legends of our family.</p>
         </div>
 
         <!-- Swiper -->
