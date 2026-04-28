@@ -11,7 +11,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat+Brush&family=Chewy&family=Cinzel+Decorative:wght@400;700&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Caveat+Brush&family=Chewy&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Marck+Script&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&family=Quicksand:wght@400;500;600&family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
@@ -89,7 +89,55 @@
             font-family: 'Quicksand', 'Poppins', sans-serif;        
             }
 
-        /* --- NAVIGATION --- */
+        /* --- TYPOGRAPHY REVAMP: PAGE 2-7 (MOBILE SAFE) --- */
+        #about,
+        #members,
+        #album,
+        #achievements,
+        #kaleidoscope,
+        #contact,
+        #members-overlay {
+            font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+        }
+
+        #about h1, #about h2, #about h3, #about h4,
+        #members h1, #members h2, #members h3, #members h4,
+        #album h1, #album h2, #album h3, #album h4,
+        #achievements h1, #achievements h2, #achievements h3, #achievements h4,
+        #kaleidoscope h1, #kaleidoscope h2, #kaleidoscope h3, #kaleidoscope h4,
+        #contact h1, #contact h2, #contact h3, #contact h4,
+        #members-overlay h1, #members-overlay h2, #members-overlay h3, #members-overlay h4 {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+            letter-spacing: 0.01em;
+        }
+
+        #about .script-font,
+        #members .script-font,
+        #album .script-font,
+        #achievements .script-font,
+        #kaleidoscope .script-font,
+        #contact .script-font,
+        #members-overlay .script-font {
+            font-family: 'Satisfy', 'Dancing Script', cursive !important;
+        }
+
+        .about-main-title-font,
+        .about-description-font,
+        .about-stats-font,
+        .ice-cream-font {
+            font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif !important;
+        }
+
+        .about-tagline-font {
+            font-family: 'Satisfy', 'Dancing Script', cursive !important;
+        }
+
+        .glitter-candy-font,
+        .rascal-font {
+            font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+        }
+
+            /* --- NAVIGATION --- */
         .glass-nav {
             background: rgba(255, 253, 249, 0.85);
             backdrop-filter: blur(12px);
@@ -372,7 +420,7 @@
     <!-- HERO SECTION -->
     <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg pt-24 overflow-hidden">
         <video id="home-bg-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
-            <source src="https://res.cloudinary.com/ddc1rmczp/video/upload/v1777083150/WhatsApp_Video_2026-04-24_at_17.47.39_i8cdho.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/ddc1rmczp/video/upload/v1777346871/VNDSTVR_GIRL_kxb1gm.mp4" type="video/mp4">
         </video>
         <h1 class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-[15vw] font-serif text-white opacity-10 pointer-events-none select-none -z-10">
             Memories
