@@ -389,7 +389,8 @@
 
         /* --- LOADER --- */
         .page-loader {
-            background: #FFF5F7;
+            background: #000000;
+            background-image: linear-gradient(180deg, #000000 0%, #0D0D11 100%);
             z-index: 9999;
         }
         .loader-opening-image {
@@ -438,6 +439,78 @@
         .hero-cta:hover, #subscribe-form button:hover {
             background: linear-gradient(135deg, #e85b7f, #ee9eb2);
         }
+
+        
+        /* --- DARK ELEGANT THEME OVERRIDE --- */
+        :root {
+            --bg-main: #0D0D11;
+            --bg-deep: #000000;
+            --bg-card: #111111;
+            --bg-card-2: #1A1A1A;
+            --pink-main: #F7057A;
+            --text-main: #FFFFFF;
+            --text-secondary: #CCCCCC;
+        }
+
+        body {
+            background: linear-gradient(180deg, var(--bg-deep), var(--bg-main)) !important;
+            color: var(--text-main) !important;
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(14px) !important;
+            border-bottom: 1px solid rgba(247, 5, 122, 0.35) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 20px rgba(247, 5, 122, 0.15) !important;
+        }
+
+        .nav-link, .mobile-link, #mobile-menu-button, .brand-title { color: var(--text-main) !important; }
+        .nav-link:hover, .mobile-link:hover, a:hover, button:hover { color: var(--pink-main) !important; transition: all 0.3s ease; }
+
+        .hero-bg {
+            background: linear-gradient(160deg, #000000 0%, #0D0D11 60%, #1A1A1A 100%) !important;
+        }
+
+        .hero-quote {
+            background: rgba(15, 15, 20, 0.55) !important;
+            border: 1px solid rgba(247, 5, 122, 0.35) !important;
+            box-shadow: 0 0 24px rgba(247, 5, 122, 0.18);
+        }
+
+        #about, #members, #album, #achievements, #kaleidoscope, #contact, footer {
+            background: linear-gradient(180deg, #000000, #0D0D11) !important;
+            color: var(--text-main) !important;
+        }
+
+        .member-card, .album-card, .mobile-panel,
+        #about .bg-white, #about .bg-soft-rose,
+        .bg-white, [class*="bg-rose-50"], [class*="bg-rose-100"] {
+            background: linear-gradient(145deg, var(--bg-card), var(--bg-card-2)) !important;
+            color: var(--text-main) !important;
+            border: 1px solid rgba(247, 5, 122, 0.22) !important;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 16px rgba(247, 5, 122, 0.12) !important;
+            backdrop-filter: blur(8px);
+        }
+
+        .text-gray-800, .text-gray-700, .text-black { color: #FFFFFF !important; }
+        .text-gray-600, .text-gray-500, .text-gray-400, .text-\[\#666666\] { color: #CCCCCC !important; }
+
+        .text-rose-gold, .text-rose, .hero-subtitle, .script-font { color: var(--pink-main) !important; }
+        .bg-rose, .bg-rose-gold { background: linear-gradient(135deg, #F7057A, #FF4FA4) !important; }
+
+        .hero-cta, #subscribe-form button, .rounded-full.bg-rose-gold, a.bg-rose-gold {
+            background: linear-gradient(135deg, #F7057A, #FF4FA4) !important;
+            box-shadow: 0 0 18px rgba(247, 5, 122, 0.45);
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover, #subscribe-form button:hover, a.bg-rose-gold:hover {
+            box-shadow: 0 0 28px rgba(247, 5, 122, 0.75) !important;
+            transform: translateY(-2px);
+        }
+
+        footer a:hover { color: var(--pink-main) !important; }
+
     </style>
 </head>
 <body class="relative">
@@ -521,7 +594,7 @@
             <!-- Menggunakan flex-col di mobile dan row di desktop agar rapi -->
             <div class="flex flex-col md:flex-row flex-wrap justify-center gap-3 md:gap-4 scroll-reveal" data-aos="fade-up" data-aos-delay="400">
                 <a href="#members" class="bg-rose-gold hover:bg-[#e85b7f] text-white px-8 py-3 md:py-4 rounded-full font-bold shadow-lg hover:shadow-rose-300/50 transition-all transform hover:-translate-y-1 brand-font text-sm md:text-base">
-                    Meet Our Team
+                    Meet Our Angels
                 </a>
                 <a href="#album" class="bg-white hover:bg-rose-50 text-rose-gold border border-rose-gold px-8 py-3 md:py-4 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-1 brand-font text-sm md:text-base">
                     View Album
@@ -1505,18 +1578,20 @@
 
             // 3. Floating Background Elements
             const container = document.getElementById('floating-container');
-            const colors = ['#FFD1DC', '#F4A7B9', '#FFF5F7', '#ffe3ea'];
+            const colors = ['rgba(247, 5, 122, 0.28)', 'rgba(247, 5, 122, 0.18)', 'rgba(255, 255, 255, 0.12)', 'rgba(13, 13, 17, 0.36)'];
 
             for(let i=0; i<15; i++) {
                 const el = document.createElement('div');
                 el.classList.add('floating-element');
-                const size = Math.random() * 60 + 20;
+                const size = Math.random() * 18 + 6;
                 el.style.width = `${size}px`;
                 el.style.height = `${size}px`;
                 el.style.left = `${Math.random() * 100}vw`;
                 el.style.background = colors[Math.floor(Math.random() * colors.length)];
-                el.style.animationDuration = `${Math.random() * 10 + 10}s`;
-                el.style.animationDelay = `${Math.random() * 5}s`;
+                 el.style.animationDuration = `${Math.random() * 12 + 14}s`;
+                el.style.animationDelay = `${Math.random() * 6}s`;
+                el.style.filter = `blur(${(Math.random() * 1.2 + 0.3).toFixed(2)}px)`;
+                el.style.opacity = `${(Math.random() * 0.22 + 0.14).toFixed(2)}`;
                 container.appendChild(el);
             }
 
