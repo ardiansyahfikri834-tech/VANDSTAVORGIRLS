@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
-    <title>VANDSTAVOR | GEN 7 (Ladies Edition - Font Updated)</title>
+    <title>VANDSTAVOR | GEN 7 (Ladies Edition - Fixed Layout)</title>
 
     <!-- Icon Placeholder -->
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/ddc1rmczp/image/upload/v1777609450/WhatsApp_Image_2026-04-24_at_17.44.06_spjqyk.jpg">
 
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- UPDATED FONTS: Inter, Orbitron, Sora (Same as previous Vandstavor Web) -->
+    <!-- UPDATED FONTS: Inter, Orbitron, Sora -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@600;700;800;900&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,7 +30,7 @@
                         'text-dark': '#2B2B2B',
                     },
                     fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'], // Changed default sans to Inter
+                        sans: ['"Inter"', 'sans-serif'],
                     }
                 }
             }
@@ -42,7 +42,7 @@
         
         /* GLOBAL FONT CHANGES */
         body {
-            font-family: 'Inter', sans-serif; /* Changed from Poppins to Inter */
+            font-family: 'Inter', sans-serif;
             background-color: #FFF5F7;
             color: #2B2B2B;
             overflow-x: hidden;
@@ -60,7 +60,7 @@
         }
         
         .brand-title {
-            font-family: 'Orbitron', sans-serif; /* Changed from Playfair */
+            font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             font-size: clamp(1.15rem, 2.2vw, 1.6rem);
             line-height: 1.1;
@@ -69,7 +69,7 @@
         }
 
         .footer-brand-title {
-            font-family: 'Orbitron', sans-serif; /* Changed from Playfair */
+            font-family: 'Orbitron', sans-serif;
             font-weight: 800;
             font-size: clamp(1.9rem, 4vw, 2.75rem);
             line-height: 1.1;
@@ -85,9 +85,9 @@
             text-transform: uppercase;
         }
 
-        /* Replacing Script Fonts with Inter or Orbitron */
+        /* Replacing Script Fonts */
         .script-font {
-            font-family: 'Orbitron', sans-serif; /* Was Dancing Script */
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.1em;
@@ -95,21 +95,20 @@
         }
 
         .section-title {
-            font-family: 'Orbitron', sans-serif; /* Was Playfair */
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             font-weight: 800;
         }
 
-        /* Mapping previous custom classes to new fonts */
         .about-main-title-font {
-            font-family: 'Orbitron', sans-serif; /* Was Chewy/Playfair */
+            font-family: 'Orbitron', sans-serif;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             font-weight: 700;
         }
 
         .about-tagline-font {
-            font-family: 'Inter', sans-serif; /* Was Caveat Brush */
+            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-style: italic;
         }
@@ -120,23 +119,23 @@
         }
 
         .glitter-candy-font {
-            font-family: 'Orbitron', sans-serif; /* Was Chewy */
+            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
             font-weight: 700;
         }
 
         .rascal-font {
-            font-family: 'Inter', sans-serif; /* Was Caveat Brush */
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
 
         .ice-cream-font {
-            font-family: 'Inter', sans-serif; /* Was Quicksand/Poppins */
+            font-family: 'Inter', sans-serif;
         }
 
         /* Hero Specific Replacements */
         .hero-subtitle {
-            font-family: 'Orbitron', sans-serif; /* Was Great Vibes */
+            font-family: 'Orbitron', sans-serif;
             color: #F4A7B9;
             text-transform: uppercase;
             letter-spacing: 0.2em;
@@ -145,33 +144,52 @@
         }
         
         .hero-brand-name {
-            font-family: 'Orbitron', sans-serif; /* Was Cinzel Decorative */
+            font-family: 'Orbitron', sans-serif;
             font-weight: 900;
             letter-spacing: 0.1em;
         }
 
         .hero-scrapbook {
-            font-family: 'Orbitron', sans-serif; /* Was Allura */
+            font-family: 'Orbitron', sans-serif;
             font-style: normal;
             font-weight: 600;
         }
 
         .hero-quote-font {
-            font-family: 'Inter', sans-serif; /* Was Marck Script */
+            font-family: 'Inter', sans-serif;
             font-weight: 400;
             font-style: italic;
         }
 
+        /* --- HERO SECTION FIXES --- */
         .hero-title-main {
             font-family: 'Orbitron', sans-serif;
             font-weight: 800;
             color: #f8fbff;
             text-shadow: 0 4px 20px rgba(6, 10, 34, 0.75);
             text-transform: uppercase;
+            /* Mengatur ukuran font agar responsif dan tidak terlalu besar di HP */
+            font-size: clamp(2rem, 5vw, 4rem); 
+            line-height: 1.05; /* Rapatkan baris agar hemat tempat */
+        }
+        
+        /* Media query khusus untuk HP agar lebih kecil jika perlu */
+        @media (max-width: 640px) {
+            .hero-title-main {
+                font-size: 2.2rem; /* Sekitar 35px - aman untuk layar kecil */
+                line-height: 1;
+            }
+            .hero-quote {
+                font-size: 0.9rem; /* Perkecil sedikit quote di HP */
+                padding: 0.5rem 1rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
         }
 
         .hero-title-accent {
-            font-family: 'Orbitron', sans-serif; /* Gradient text usually looks better sans-serif */
+            font-family: 'Orbitron', sans-serif;
             background-image: linear-gradient(135deg, #FF6F91 0%, #ffffff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -191,13 +209,7 @@
         }
 
         /* --- TYPOGRAPHY REVAMP: PAGE 2-7 (MOBILE SAFE) --- */
-        #about,
-        #members,
-        #album,
-        #achievements,
-        #kaleidoscope,
-        #contact,
-        #members-overlay {
+        #about, #members, #album, #achievements, #kaleidoscope, #contact, #members-overlay {
             font-family: 'Inter', sans-serif;
         }
 
@@ -213,14 +225,8 @@
             letter-spacing: 0.05em;
         }
 
-        #about .script-font,
-        #members .script-font,
-        #album .script-font,
-        #achievements .script-font,
-        #kaleidoscope .script-font,
-        #contact .script-font,
-        #members-overlay .script-font {
-            font-family: 'Sora', sans-serif !important; /* Using Sora for accents/labels */
+        #about .script-font, #members .script-font, #album .script-font, #achievements .script-font, #kaleidoscope .script-font, #contact .script-font, #members-overlay .script-font {
+            font-family: 'Sora', sans-serif !important;
         }
 
         /* --- NAVIGATION --- */
@@ -231,7 +237,7 @@
             transition: all 0.4s ease;
         }
         .nav-link {
-            font-family: 'Sora', sans-serif; /* Enforcing Sora font */
+            font-family: 'Sora', sans-serif;
             position: relative;
             color: #2B2B2B;
             font-weight: 600;
@@ -369,7 +375,7 @@
             backdrop-filter: blur(20px);
         }
         .mobile-link {
-            font-family: 'Sora', sans-serif; /* Using Sora for mobile menu */
+            font-family: 'Sora', sans-serif;
             color: #2B2B2B;
             border: 1px solid rgba(244, 167, 185, 0.45);
             font-weight: 600;
@@ -438,7 +444,6 @@
 
     <!-- LOADER -->
     <div id="page-loader" class="page-loader fixed inset-0 flex flex-col items-center justify-center transition-opacity duration-1000">
-        <!-- Pastikan src gambar ini valid dan tidak redirect -->
         <img id="opening-loader-image" class="loader-opening-image mb-6" src="https://res.cloudinary.com/ddc1rmczp/image/upload/v1777609450/WhatsApp_Image_2026-04-24_at_17.44.06_spjqyk.jpg" alt="Opening animation image">
         <p class="brand-font text-3xl text-gray-400 opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">Vandstavor</p>
     </div>
@@ -485,31 +490,40 @@
         </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center hero-bg pt-24 overflow-hidden">
+    <!-- HERO SECTION (FIXED LAYOUT) -->
+    <!-- Perubahan Utama: h-screen (bukan min), pt-16 (lebih kecil), flex-col justify-center -->
+    <section id="home" class="relative h-screen flex flex-col items-center justify-center hero-bg pt-16 pb-12 px-6 overflow-hidden">
         <video id="home-bg-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop">
-            <source src="https://res.cloudinary.com/ddc1rmczp/video/upload/v1777615814/VNDSTVR_GIRL-1_hwwstg.mp4" type="video/mp4">
+            <source src="https://res.cloudinary.com/ddc1rmczp/video/upload/v1777691279/VNDSTVR_GIRL_wpfobc.mp4" type="video/mp4">
         </video>
-        <h1 class="absolute top-1/4 left-1/2 transform -translate-x-1/2 text-[15vw] font-serif text-white opacity-10 pointer-events-none select-none -z-10" style="font-family: 'Orbitron', sans-serif;">
+        
+        <!-- Background Text Decoration (Diatur agar tidak mengganggu) -->
+        <h1 class="absolute top-1/4 left-1/2 transform -translate-x-1/2 w-full text-[15vw] font-serif text-white opacity-10 pointer-events-none select-none -z-10 leading-none text-center whitespace-nowrap" style="font-family: 'Orbitron', sans-serif;">
             MEMORIES
         </h1>
 
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <p class="hero-subtitle text-3xl md:text-2xl mb-4" data-aos="fade-down">Memories Archive</p>
-            <h1 class="hero-title-main text-5xl md:text-8xl font-serif font-bold mb-6 leading-tight scroll-reveal">
-                <span class="hero-brand-name">VANDSTAVOR</span> <br>
-                <span class="hero-title-accent hero-scrapbook">JOURNEY</span>
+        <div class="container mx-auto text-center relative z-10 w-full max-w-4xl">
+            <!-- Subtitle dikecilkan sedikit di mobile -->
+            <p class="hero-subtitle text-1xl md:text-2xl mb-2 md:mb-4 scroll-reveal" data-aos="fade-down">Memories Archive</p>
+            
+            <!-- Main Title -->
+            <!-- Menambahkan w-full agar responsive padding dalam -->
+            <h1 class="hero-title-main font-serif font-bold mb-4 md:mb-6 leading-none text-center scroll-reveal">
+                <span class="hero-brand-name block">VANDSTAVOR</span> 
+                <span class="hero-title-accent hero-scrapbook block mt-1 md:mt-2">JOURNEY</span>
             </h1>
 
-            <p class="hero-quote max-w-2xl mx-auto text-lg md:text-xl mb-10 scroll-reveal" data-aos="fade-up" data-aos-delay="200">
+            <p class="hero-quote max-w-2xl mx-auto text-base md:text-xl mb-8 md:mb-10 scroll-reveal" data-aos="fade-up" data-aos-delay="200">
                 "Togetherness and closeness are the keys to strong cooperation in living through the twists and turns of life".
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4 scroll-reveal" data-aos="fade-up" data-aos-delay="400">
-                <a href="#members" class="bg-rose-gold hover:bg-[#e85b7f] text-white px-8 py-4 rounded-full font-bold shadow-lg hover:shadow-rose-300/50 transition-all transform hover:-translate-y-1 brand-font">
+            <!-- Buttons Container -->
+            <!-- Menggunakan flex-col di mobile dan row di desktop agar rapi -->
+            <div class="flex flex-col md:flex-row flex-wrap justify-center gap-3 md:gap-4 scroll-reveal" data-aos="fade-up" data-aos-delay="400">
+                <a href="#members" class="bg-rose-gold hover:bg-[#e85b7f] text-white px-8 py-3 md:py-4 rounded-full font-bold shadow-lg hover:shadow-rose-300/50 transition-all transform hover:-translate-y-1 brand-font text-sm md:text-base">
                     Meet Our Angels
                 </a>
-                <a href="#album" class="bg-white hover:bg-rose-50 text-rose-gold border border-rose-gold px-8 py-4 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-1 brand-font">
+                <a href="#album" class="bg-white hover:bg-rose-50 text-rose-gold border border-rose-gold px-8 py-3 md:py-4 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-1 brand-font text-sm md:text-base">
                     View Album
                 </a>
             </div>
@@ -536,12 +550,12 @@
                     </p>
                     <div class="grid grid-cols-2 gap-8 about-stats-font">
                         <div class="text-center p-4 bg-soft-rose rounded-2xl">
-                            <h3 class="text-4xl font-bold text-rose-gold brand-font">20+</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Awards Won</p>
+                            <h3 class="text-4xl font-bold text-black brand-font">20+</h3>
+                            <p class="text-xs text-black uppercase tracking-widest mt-2">Awards Won</p>
                         </div>
                         <div class="text-center p-4 bg-soft-rose rounded-2xl">
-                            <h3 class="text-4xl font-bold text-rose-gold brand-font">3</h3>
-                            <p class="text-xs text-gray-500 uppercase tracking-widest mt-2">Years Together</p>
+                            <h3 class="text-4xl font-bold text-black brand-font">3</h3>
+                            <p class="text-xs text-black uppercase tracking-widest mt-2">Years Together</p>
                         </div>
                     </div>
                 </div>
@@ -1261,15 +1275,6 @@
                     </div>
                 </div>
 
-                <!-- Note: In a real app, ensure unique names/images for all slides -->
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                <div class="swiper-slide !w-auto px-2"><div class="member-card w-64"><div class="h-72 bg-gray-100 overflow-hidden mb-4"><img src="https://res.cloudinary.com/ddc1rmczp/image/upload/f_auto,q_auto,w_800/v1769918733/putra_10_fhcgaj.jpg" class="w-full h-full object-cover member-img" alt="Member"></div><div class="text-center px-2"><h3 class="text-lg brand-font uppercase text-gray-800 leading-tight mb-1">Member Name</h3><p class="text-xs text-rose-gold font-bold uppercase tracking-widest mb-2">Member</p><p class="text-xs text-gray-500 italic">"Quote."</p></div></div></div>
-                 <!-- End of placeholders -->
-
             </div>
 
             <div class="text-center mt-8">
@@ -1479,9 +1484,9 @@
     <script>
         // --- EmailJS Template ---
         const EMAILJS_CONFIG = {
-            publicKey: 'NvIoTc_vHoNoaWqDK', // Isi dengan Public Key EmailJS kamu
-            serviceId: 'service_ds5cfxf', // Isi dengan Service ID
-            templateId: 'template_gdodf4b' // Isi dengan Template ID
+            publicKey: 'NvIoTc_vHoNoaWqDK', 
+            serviceId: 'service_ds5cfxf', 
+            templateId: 'template_gdodf4b' 
         };
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1494,8 +1499,8 @@
             const pageLoader = document.getElementById('page-loader');
             
             setTimeout(() => {
-                pageLoader.style.opacity = '0'; // Mulai memudar
-                setTimeout(() => pageLoader.remove(), 1000); // Tunggu 1 detik transisi fade out selesai, baru hapus elemen
+                pageLoader.style.opacity = '0'; 
+                setTimeout(() => pageLoader.remove(), 1000); 
             }, 2000); 
 
             // 3. Floating Background Elements
@@ -1647,7 +1652,6 @@
                     alert('Terima kasih! Email kamu berhasil dikirim.');
                 } catch (err) {
                     console.error('EmailJS error:', err);
-                    // alert('Gagal mengirim email. Cek EmailJS Public Key / Service ID / Template ID.');
                 }
             });
         });
